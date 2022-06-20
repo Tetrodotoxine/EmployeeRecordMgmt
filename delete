@@ -1,0 +1,48 @@
+registration
+{% ifequal error "no" %}-->
+<!--<script>-->
+<!--    alert('Signup Successfully');-->
+<!--    window.location=("/emp_login");-->
+<!--</script>-->
+<!--{% endifequal %}-->
+<!--{% ifequal error "yes" %}-->
+<!--<script>-->
+<!--    alert('Something went wrong,Try Again...');-->
+<!--</script>-->
+<!--{% endifequal %}
+login
+{% ifequal error "no" %}
+<script>
+    alert('logged in successfully');
+    window.location=("/emp_home");
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Invalid Login Credentials,Try Again...');
+</script>
+{% endifequal %}
+admin login
+{% ifequal error "no" %}
+<script>
+    alert('logged in successfully');
+    window.location=('{% url 'admin_home' %}');
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Invalid Login Credentials,Try Again...');
+</script>
+{% endifequal %}
+
+<br><a href="{% url 'edit_education' i.user.id %}" class="text-success">Edit Education Detail</a>
+                        <br><a href="{% url 'edit_experience' i.user.id %}" class="text-secondary">Edit Experience Detail</a>
+                        <br><a href="{% url 'delete_employee' i.user.id %}" class="text-danger" onclick="return confirm('Are You Sure?')">Delete</a>
+
+                        {% url 'edit_education' i.user.id %}
+                        {% url 'edit_experience' i.user.id %}
+                        {% url 'delete_employee' i.user.id %}
+                        <a href="{% url 'edit_profile' i.id %}" class="text-primary">Edit Profile Detail</a>
+                        <br><a href="" class="text-success">Edit Education Detail</a>
+                        <br><a href="" class="text-secondary">Edit Experience Detail</a>
+                        <br>
